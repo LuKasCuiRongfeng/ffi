@@ -1,7 +1,7 @@
 ignoredBuiltDependencies:
-  - electron-winstaller
-  - esbuild
-  - koffi
+    - electron-winstaller
+    - esbuild
+    - koffi
 
 onlyBuiltDependencies:
-  - electron
+    - electron

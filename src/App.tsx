@@ -5,7 +5,10 @@ function App() {
         <div>
             <button
                 onClick={() => {
-                    const res = window.ipcRenderer.send("test", "hello from renderer");
+                    const res = window.ipcRenderer.send(
+                        "test",
+                        "hello from renderer",
+                    );
                     console.log(res);
                 }}
             >

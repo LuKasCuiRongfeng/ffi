@@ -10,7 +10,7 @@ export function log(label: string, msg: string) {
 export function run(
     command: string,
     args: string[] = [],
-    opts: SpawnOptions = {}
+    opts: SpawnOptions = {},
 ) {
     return new Promise<void>((resolve, reject) => {
         const child = spawn(command, args, {
@@ -19,7 +19,7 @@ export function run(
             ...opts,
         });
         child.on("close", (code) =>
-            code === 0 ? resolve() : reject(new Error(`exit ${code}`))
+            code === 0 ? resolve() : reject(new Error(`exit ${code}`)),
         );
     });
 }

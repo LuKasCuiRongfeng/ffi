@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { build } from "esbuild";
 import { spawn } from "child_process";
 import concurrently from "concurrently";
 import chalk from "chalk";
@@ -62,7 +61,7 @@ async function runDev() {
                 prefixColor: "green",
             },
         ],
-        { killOthersOn: ["failure", "success"] }
+        { killOthersOn: ["failure", "success"] },
     );
 }
 

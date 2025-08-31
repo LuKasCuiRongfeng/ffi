@@ -7,7 +7,7 @@ import { buildMainProcess, log } from "./utils";
 async function runBuild() {
     const root = process.cwd();
     process.env.NODE_ENV = "production";
-    
+
     async function buildRenderer() {
         log("build", "start renderer (vite)...");
         await viteBuild({ configFile: resolve(root, "vite.config.ts") });
