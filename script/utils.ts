@@ -2,6 +2,7 @@ import { spawn, SpawnOptions } from "child_process";
 import chalk from "chalk";
 import { build } from "esbuild";
 import { resolve } from "path";
+import { cpSync } from "fs";
 
 export function log(label: string, msg: string) {
     console.log(`${chalk.cyan(`[${label}]`)} ${msg}`);
@@ -47,8 +48,13 @@ export async function buildMainProcess(dev?: boolean) {
         // electron 沙盒环境下，preload脚本目前必须要求 cjs，不支持 esm
         format: "cjs",
         outdir: resolve(root, "dist/main"),
-        external: ["electron", "koffi"],
+        external: ["electron", "koffi", "./native/index.node"],
         sourcemap: dev ? true : false,
         minify: dev ? false : true,
+    });
+
+    log("esbuild", "copy native files...");
+    cpSync(resolve(root, "native"), resolve(root, "dist/native"), {
+        recursive: true,
     });
 }

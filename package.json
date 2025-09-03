@@ -5,7 +5,7 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "start": "rimraf dist/main && tsx ./script/dev.ts",
+        "start": "rimraf dist && tsx ./script/dev.ts",
         "build": "rimraf dist && tsx ./script/build.ts",
         "format": "prettier --write . --ignore-path .gitignore",
         "lint": "eslint .",
